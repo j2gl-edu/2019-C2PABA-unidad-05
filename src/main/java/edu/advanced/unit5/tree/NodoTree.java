@@ -8,7 +8,6 @@ public class NodoTree {
     public NodoTree(Integer value) {
         this.value = value;
     }
-    // ... Getters y setters
 
     public void add(Integer value) {
         if (value < this.value) {
@@ -74,6 +73,7 @@ public class NodoTree {
         System.out.println(value);
     }
 
+    // Getters y setters
     public Integer getValue() {
         return value;
     }

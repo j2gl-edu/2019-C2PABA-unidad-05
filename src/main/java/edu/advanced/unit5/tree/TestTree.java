@@ -1,6 +1,7 @@
 package edu.advanced.unit5.tree;
 
 public class TestTree {
+
     public static void main(String[] args) {
         NodoTree root = new NodoTree(10);
         root.add(5);
@@ -27,4 +28,5 @@ public class TestTree {
         System.out.println("Impresion: pre order");
         root.printPreOrder();
     }
+    
 }
