@@ -1,11 +1,12 @@
 package edu.advanced.unit5.tree;
 
-public class NodoTree {
-    private Integer value;
-    private NodoTree left;
-    private NodoTree right;
+public class NodeTree {
 
-    public NodoTree(Integer value) {
+    private Integer value;
+    private NodeTree left;
+    private NodeTree right;
+
+    public NodeTree(Integer value) {
         this.value = value;
     }
 
@@ -14,19 +15,19 @@ public class NodoTree {
             if (left != null) {
                 left.add(value);
             } else {
-                left = new NodoTree(value);
+                left = new NodeTree(value);
             }
         } else {
             if (right != null) {
                 right.add(value);
             } else {
-                right = new NodoTree(value);
+                right = new NodeTree(value);
             }
         }
     }
 
-    public NodoTree find(Integer value) {
-        if (value == this.value) {
+    public NodeTree find(Integer value) {
+        if (value.equals(this.value)) {
             return this;
         } else if (value < this.value) {
             if (this.left != null) {
@@ -65,10 +66,10 @@ public class NodoTree {
 
     public void printPosOrder() {
         if (left != null) {
-            left.printPreOrder();
+            left.printPosOrder();
         }
         if (right != null) {
-            right.printPreOrder();
+            right.printPosOrder();
         }
         System.out.println(value);
     }
@@ -82,19 +83,19 @@ public class NodoTree {
         this.value = value;
     }
 
-    public NodoTree getLeft() {
+    public NodeTree getLeft() {
         return left;
     }
 
-    public void setLeft(NodoTree left) {
+    public void setLeft(NodeTree left) {
         this.left = left;
     }
 
-    public NodoTree getRight() {
+    public NodeTree getRight() {
         return right;
     }
 
-    public void setRight(NodoTree right) {
+    public void setRight(NodeTree right) {
         this.right = right;
     }
 
