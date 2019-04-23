@@ -3,12 +3,18 @@ package edu.advanced.unit5.tree;
 public class TestTree {
 
     public static void main(String[] args) {
-        NodoTree root = new NodoTree(10);
+        NodeTree root = new NodeTree(10);
+        root.add(20);
+        root.add(4);
+        root.add(2);
+        root.add(9);
         root.add(5);
-        root.add(15);
         root.add(8);
+        root.add(12);
+        root.add(15);
+        root.add(25);
 
-        NodoTree result = root.find(11);
+        NodeTree result = root.find(11);
         if (result != null) {
             System.out.println(result);
         } else {
