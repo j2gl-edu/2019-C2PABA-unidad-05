@@ -381,22 +381,17 @@ public class CircularLinkedList {
      * @param index en la cual se encuentra el nodo a clear.
      */
     public void remove(int index) {
-        // Verifica si la posición ingresada se encuentre en el rango
-        // >= 0 y < que el numero de elementos del la lista.
         if (index >= 0 && index < size) {
-            // Consulta si el nodo a clear es el primero
             if (index == 0) {
-                // Elimina el primer nodo apuntando al siguinte.
-                head = head.getNext();
-                // Apuntamos con el tail nodo de la lista al head.
-                tail.setNext(head);
-            }
-            // En caso que el nodo a clear este por el medio
-            // o sea el tail
-            else {
-                // Crea una copia de la lista.
+                if (head == tail) {
+                    head = null;
+                    tail = null;
+                } else {
+                    head = head.getNext();
+                    tail.setNext(head);
+                }
+            } else {
                 Node aux = head;
-                // Recorre la lista hasta lleger al nodo anterior al clear.
                 for (int i = 0; i < index - 1; i++) {
                     aux = aux.getNext();
                 }
@@ -404,15 +399,10 @@ public class CircularLinkedList {
                     aux.setNext(head);
                     tail = aux;
                 } else {
-                    // Guarda el nodo siguiente del nodo a clear.
                     Node siguiente = aux.getNext();
-                    // Enlaza el nodo anterior al de clear con el
-                    // sguiente despues de el.
                     aux.setNext(siguiente.getNext());
-                    // Actualizamos el puntero del tail nodo
                 }
             }
-            // Disminuye el contador de tamaño de la lista.
             size--;
         }
     }
