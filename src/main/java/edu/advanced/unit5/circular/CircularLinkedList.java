@@ -342,10 +342,13 @@ public class CircularLinkedList {
         if (contains(element)) {
             // Consulta si el nodo a clear es el pirmero
             if (head.getValue() == element) {
-                // El primer nodo apunta al siguiente.
-                head = head.getNext();
-                // Apuntamos con el tail nodo de la lista al head.
-                tail.setNext(head);
+                if (head == tail) {
+                    head = null;
+                    tail = null;
+                } else {
+                    head = head.getNext();
+                    tail.setNext(head);
+                }
             } else {
                 // Crea ua copia de la lista.
                 Node aux = head;
@@ -418,11 +421,8 @@ public class CircularLinkedList {
      * Elimina la lista
      */
     public void clear() {
-        // Elimina el valor y la referencia a los demas nodos.
         head = null;
-        // Elimina el valor y la referencia al primer nodo.
         tail = null;
-        // Reinicia el contador de tamaño de la lista a 0.
         size = 0;
     }
 
@@ -433,8 +433,12 @@ public class CircularLinkedList {
             int i = 0;
 
             do {
-                stringBuilder.append("-> ");
-                stringBuilder.append(i).append(".[").append(aux.getValue()).append("] ");
+                stringBuilder.append("[")
+                        .append(i)
+                        .append("] ")
+                        .append("-> ")
+                        .append(aux.getValue())
+                        .append(" ");
                 aux = aux.getNext();
                 i++;
             } while (aux != head);
@@ -443,6 +447,10 @@ public class CircularLinkedList {
     }
 
     public void display() {
-        System.out.print(convertToString());
+        String s = convertToString();
+        if (s == null || s.isEmpty()) {
+            s = "[ ] -> List is empty.";
+        }
+        System.out.print(s);
     }
 }

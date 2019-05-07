@@ -15,10 +15,13 @@ public class CircularLinekedListMain {
 
         System.out.println("-- Circular List --");
         circularLinkedList.display();
+        System.out.println();
 
-        circularLinkedList.removeByElement(9);
+        circularLinkedList.remove(0);
         circularLinkedList.removeByElement(41);
         circularLinkedList.removeByElement(6);
+
+        circularLinkedList.display();
 
     }
 }
