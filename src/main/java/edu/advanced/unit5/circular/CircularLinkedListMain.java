@@ -1,6 +1,6 @@
 package edu.advanced.unit5.circular;
 
-public class CircularLinekedListMain {
+public class CircularLinkedListMain {
 
     public static void main(String[] args) {
         CircularLinkedList circularLinkedList = new CircularLinkedList();
@@ -22,6 +22,7 @@ public class CircularLinekedListMain {
         circularLinkedList.removeByElement(6);
 
         circularLinkedList.display();
+        System.out.println();
 
     }
 }
